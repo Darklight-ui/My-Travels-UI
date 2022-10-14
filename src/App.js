@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+/** @format */
+
+import "./App.css";
+import BodyComponent from "./components/BodyComponent";
+import NavComponent from "./components/NavComponent";
+import demo from "./components/db";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	console.log(demo);
+	const formdata = demo.map((data) => {
+		return <BodyComponent key={data.id} data={data} />;
+	});
+	return (
+		<div className='bg'>
+			<NavComponent />
+			{formdata}
+		</div>
+	);
 }
 
 export default App;
